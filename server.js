@@ -12,11 +12,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 // importing Routers
-// const ContactsRouter = require("./src/routers/contacts.route");
-// const InvoicesRouter = require("./src/routers/invoices.route");
+const WorksitesRouter = require("./src/routers/worksites.route");
 
-// const routers = [new ContactsRouter(), new InvoicesRouter()];
-// routers.forEach((router) => app.use("/", router.router));
+const routers = [new WorksitesRouter()];
+routers.forEach((router) => app.use("/", router.router));
 
 app.listen(PORT, () => {
   console.log(`Express app listening on port ${PORT}!`);
