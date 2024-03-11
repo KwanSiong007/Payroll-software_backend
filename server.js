@@ -13,8 +13,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 // importing Routers
 const WorksitesRouter = require("./src/routers/worksites.route");
+const AttendanceReportsRouter = require("./src/routers/attendanceReports.route");
 
-const routers = [new WorksitesRouter()];
+const routers = [new WorksitesRouter(), new AttendanceReportsRouter()];
 routers.forEach((router) => app.use("/", router.router));
 
 app.listen(PORT, () => {

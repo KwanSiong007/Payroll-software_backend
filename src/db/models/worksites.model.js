@@ -4,7 +4,11 @@ module.exports = (sequelize, DataTypes) => {
   //MANY TO MANY R BTW WORKSITE AND WORKER
   class Worksite extends Model {
     static associate(models) {
-      // this.belongsToMany();
+      this.hasMany(models.attendanceReports, { foreignKey: "worksite_id" });
+      this.belongsToMany(models.workers, {
+        through: models.workersWorksites,
+        key: "worksite_id",
+      });
     }
   }
   Worksite.init(
